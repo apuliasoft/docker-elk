@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  nginx:
+    build:
+      context: app/
+      args:
+        NGINX_VERSION: ${NGINX_VERSION}
+    restart: unless-stopped
+    ports:
+      - 8080:80
+
