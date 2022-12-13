@@ -6,6 +6,10 @@ services:
       context: app/
       args:
         NGINX_VERSION: ${NGINX_VERSION}
+      labels:
+        - "co.elastic.logs/module=nginx"
+        - "co.elastic.logs/fileset.stdout=access"
+        - "co.elastic.logs/fileset.stderr=error"
     restart: unless-stopped
     ports:
       - 8080:80
